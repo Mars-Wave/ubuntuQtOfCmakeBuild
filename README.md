@@ -1,6 +1,8 @@
-# OpenFrameworks QtCreator Project for Linux Mint 22.1 (Cinnamon)
+# OpenFrameworks QtCreator Project for Ubuntu Linux
 
-This project demonstrates how to compile an OpenFrameworks application using **QtCreator** on Linux Mint 22.1 (Xia) Cinnamon. Tested with OpenFrameworks from source and QtCreator 12.0+.
+This project demonstrates how to compile an OpenFrameworks application using **QtCreator** on Ubuntu.
+
+Tested with OpenFrameworks from source and QtCreator in Linux Mint 22.1 (Xia) Cinnamon.
 
 ## Prerequisites
 
