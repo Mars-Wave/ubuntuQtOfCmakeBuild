@@ -29,7 +29,7 @@ pkg_check_modules(CAIRO REQUIRED cairo)
 # Include OpenFrameworks directories
 add_library(openframeworks STATIC IMPORTED)
 set_target_properties(openframeworks PROPERTIES
-    IMPORTED_LOCATION ${OF_COMPILED_DIR}/lib/linux64/libopenFrameworks.a
+    IMPORTED_LOCATION ${OF_COMPILED_DIR}/lib/linux64/libopenFrameworksDebug.a
 )
 
 target_include_directories(openframeworks INTERFACE
@@ -57,13 +57,6 @@ target_include_directories(openframeworks INTERFACE
 
 # =============================================
 # 2. Configure Addons
-#    Collection of Addons files must comply
-#    with the locations of the .hpp / .cpp
-#    files. i.e: ofxGui only has in 
-#    OF_ADDONS_DIR/ofxGui/src
-#    but ofxVectoGraphics has in 
-#    OF_ADDONS_DIR/ofxVectorGraphics/src and
-#    OF_ADDONS_DIR/ofxVectorGraphics/libs
 # =============================================
 set(OF_ADDONS_DIR ${OF_ROOT}/addons)
 target_include_directories(openframeworks INTERFACE
@@ -102,7 +95,11 @@ set(SYSTEM_LIBS
 # =============================================
 # 4. Create Executable
 # =============================================
-file(GLOB_RECURSE APP_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
+file(GLOB_RECURSE APP_SOURCES
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.h   # Include .h headers
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.hpp # Include .hpp headers
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
+)
 
 add_executable(${PROJECT_NAME} ${APP_SOURCES} ${OFXGUI_SOURCES} ${OFXVECTOR_SOURCES})
 
@@ -117,7 +114,7 @@ target_link_libraries(${PROJECT_NAME}
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin
-    CXX_STANDARD 17  # C++17 (20 is also possible)
+    CXX_STANDARD 17  # Ensure C++17 standard
 )
 
 # =============================================
