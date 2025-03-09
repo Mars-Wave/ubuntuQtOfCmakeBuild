@@ -48,4 +48,5 @@ To add more addons:
 - **Boost Errors**: Check `libboost-all-dev` installation
 
 Tested on Linux Mint 22.1 Cinnamon (Ubuntu 22.04 base). For other distributions, adjust package names accordingly.
-```
+
+(This project was aided partially by AI and passive aggressive comments found in github issues, i.e: https://github.com/openframeworks/openFrameworks/issues/6027)
