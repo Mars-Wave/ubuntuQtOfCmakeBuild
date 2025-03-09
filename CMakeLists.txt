@@ -117,7 +117,7 @@ target_link_libraries(${PROJECT_NAME}
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin
-    CXX_STANDARD 17  # Ensure C++17 standard
+    CXX_STANDARD 17  # C++17 (20 is also possible)
 )
 
 # =============================================
